@@ -1,0 +1,45 @@
+/* 
+    Bouncing dots 
+    each span is a dot, they are displayed in a column
+    they move up a little bit and they grow
+*/
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Get all the spans */
+.loader > span {
+    display: inline-block;
+    background-color: purple;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    transform: translate3d(0);
+    margin: 0 8px;
+    /* alternate = goes forwards then backwards; changes the direction */
+    animation: bounce 0.6s infinite alternate;
+}
+
+/* Get the second span */
+.loader >span:nth-child(2) {
+    background-color: palevioletred;
+    animation-delay: 0.2s;
+}
+
+/* Get the third span */
+.loader >span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    /* to = left to right: sentido horário */
+    to {
+        width: 16px;
+        height: 16px;
+        /* Move the dots up; translate3d(x,y,z)*/
+        transform: translate3d(0, -16px, 0);
+    }
+}

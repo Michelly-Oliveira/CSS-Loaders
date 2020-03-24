@@ -1,0 +1,31 @@
+/* 
+    Add content(the circles) to achieve the loading effect
+    Add the three dots at the end of the word
+*/
+
+.loader {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 40px;
+    color: palevioletred;
+}
+
+/* Insert content via CSS */
+.loader::after {
+    content: '\2026';
+    display: inline-block;
+    /* So it doesn't show the three dots all the time */
+    overflow: hidden;
+    vertical-align: bottom;
+    /* The animation has 4 steps */
+    animation: dots steps(4, end) 2s infinite;
+    /* They don't show */
+    width: 0px;
+}
+
+@keyframes dots {
+    /* to = left to right: sentido horário */
+    to {
+        width: 1.25em;
+        /* shows only one dot at a time because we set the width to a small value, if the width is bigger, then more dots show in each animation*/
+    }
+}

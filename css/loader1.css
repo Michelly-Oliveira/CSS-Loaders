@@ -1,0 +1,47 @@
+/* 
+    -> rotation of the wrapper, to achieve the effect of the loaders spinning around in a circle
+    -> scale of the circles, to make them small-big-small
+*/
+
+/* Wrapper */
+.loader {
+    height: 50px;
+    transform-origin: bottom center;
+    animation: rotate 3s linear infinite;
+}
+
+/* Styles for both circles */
+.circle {
+    /* No line break, the circles stay side by side */
+    display: inline-block;
+    background-color: purple;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    /* Start basically invisible */
+    transform: scale(0);
+    animation: grow 1.5s linear infinite;
+    /* Make the circles closer */
+    margin: -10px;
+}
+
+/* Change the color of the second */
+.circle:nth-child(2) {
+    background-color: palevioletred;
+    /* Delay the animation of the second circle so that they don't move at the same time */
+    animation-delay: 0.75s;
+}
+
+@keyframes rotate {
+    /* to = rotate from left to right: sentido horário */
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes grow {
+    /* At 50% of the animation grow the circle's size */
+    50% {
+        transform: scale(1);
+    }
+}
